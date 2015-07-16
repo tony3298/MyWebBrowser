@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wip-HV-qtb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +17,118 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0N8-vc-CJd">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ObC-GO-1et">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="0N8-vc-CJd" secondAttribute="trailing" constant="-16" id="4BH-uI-GWj"/>
+                            <constraint firstItem="0N8-vc-CJd" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="Qh4-bB-a52"/>
+                            <constraint firstItem="0N8-vc-CJd" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Sux-b5-UNq"/>
+                            <constraint firstItem="0N8-vc-CJd" firstAttribute="bottom" secondItem="kh9-bI-dsS" secondAttribute="bottomMargin" id="aU4-Q9-5UI"/>
+                            <constraint firstAttribute="centerX" secondItem="0N8-vc-CJd" secondAttribute="centerX" id="i7E-yJ-ZNA"/>
+                            <constraint firstAttribute="centerX" secondItem="ObC-GO-1et" secondAttribute="centerX" id="r0x-mE-1Cp"/>
+                            <constraint firstAttribute="centerY" secondItem="ObC-GO-1et" secondAttribute="centerY" id="tyP-sx-15O"/>
+                            <constraint firstAttribute="centerY" secondItem="0N8-vc-CJd" secondAttribute="centerY" id="xrg-ax-cbN"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="0N8-vc-CJd"/>
+                                <exclude reference="ObC-GO-1et"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="r0x-mE-1Cp"/>
+                                <exclude reference="tyP-sx-15O"/>
+                                <exclude reference="4BH-uI-GWj"/>
+                                <exclude reference="Qh4-bB-a52"/>
+                                <exclude reference="Sux-b5-UNq"/>
+                                <exclude reference="aU4-Q9-5UI"/>
+                                <exclude reference="i7E-yJ-ZNA"/>
+                                <exclude reference="xrg-ax-cbN"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="0N8-vc-CJd"/>
+                                <include reference="ObC-GO-1et"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="r0x-mE-1Cp"/>
+                                <include reference="tyP-sx-15O"/>
+                                <include reference="4BH-uI-GWj"/>
+                                <include reference="Qh4-bB-a52"/>
+                                <include reference="Sux-b5-UNq"/>
+                                <include reference="aU4-Q9-5UI"/>
+                                <include reference="i7E-yJ-ZNA"/>
+                                <include reference="xrg-ax-cbN"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="rewind" id="QWx-U1-DYW">
+                            <connections>
+                                <action selector="goBack" destination="0N8-vc-CJd" id="UwV-n4-kpy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xe5-s4-0h9"/>
+                        <barButtonItem systemItem="stop" id="f2A-Gp-i66">
+                            <connections>
+                                <action selector="stopLoading" destination="0N8-vc-CJd" id="Xfi-Jg-bdk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="W8h-Di-GcU"/>
+                        <barButtonItem systemItem="refresh" id="Npq-si-bfc">
+                            <connections>
+                                <action selector="reload" destination="0N8-vc-CJd" id="oWC-Zg-jGj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="CJe-9i-YMZ"/>
+                        <barButtonItem systemItem="fastForward" id="fGC-FJ-10s">
+                            <connections>
+                                <action selector="goForward" destination="0N8-vc-CJd" id="roK-TG-JJi"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="Gvr-8F-25p"/>
+                    <connections>
+                        <outlet property="backButton" destination="QWx-U1-DYW" id="GwU-p7-9bM"/>
+                        <outlet property="forwardButton" destination="fGC-FJ-10s" id="mYL-Vt-uaT"/>
+                        <outlet property="refreshButton" destination="Npq-si-bfc" id="HT4-vL-Fv8"/>
+                        <outlet property="spinner" destination="ObC-GO-1et" id="GmF-Fb-Iee"/>
+                        <outlet property="stopButton" destination="f2A-Gp-i66" id="4Rh-8W-Fsw"/>
+                        <outlet property="webView" destination="0N8-vc-CJd" id="WqA-3f-Oua"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2140.5" y="358"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KOD-2h-MpB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="Wip-HV-qtb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cDH-WU-uT0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="g2J-ca-cgH">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="JhG-Z4-AaS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pgf-G3-g7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1222.5" y="358"/>
         </scene>
     </scenes>
 </document>
